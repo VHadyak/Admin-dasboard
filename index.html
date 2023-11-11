@@ -6,10 +6,51 @@
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 900,
+      'GRAD' 0,
+      'opsz' 48
+    }
+    </style>
+   
 </head>
 <body>
   <div class="grid-container">
-    <div class="header-container"></div>
+    <div class="header-container">
+      
+      <div class="search-container">
+        <button id="search-btn">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+        <input type="text" placeholder="Search">
+      </div>
+        
+      <div class="full-name-handler">
+        <img src="/icons/bell.svg">
+        <div class="profile-pic"></div>
+        <div class="full-name">Vlad H</div>
+      </div>
+
+  
+      <div class="profile-handler">
+        <div class="profile-pic"></div>
+        <div class="self-intro">Hi there, 
+          <span><a href="https://github.com/VHadyak" target="_blank">Vlad H (@evazzion)</a></span>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button>New</button>
+        <button>Upload</button>
+        <button>Share</button>
+      </div>
+ 
+    </div>
     
     <div class="sidebar-container">
       <div class="logo-sec">
@@ -17,7 +58,7 @@
         <span>Dashboard</span>
       </div>
       <ul>
-        <li><a href="#" alt="Home icon"><img src="icons/home.svg">Home</a></li>
+        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" alt="Home icon" target="_blank"><img src="icons/home.svg">Home</a></li>
         <li><a href="#" alt="Profile icon"><img src="icons/profile.svg">Profile</a></li>
         <li><a href="#" alt="Messages icon"><img src="icons/messages.svg">Messages</a></li>
         <li><a href="#" alt="History icon"><img src="icons/history.svg">History</a></li>
