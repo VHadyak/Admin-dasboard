@@ -41,11 +41,15 @@ body {
 
 .search-container input[type="text"] {
   width: 70%;
-  height: 37px;
+  height: 40px;
   border-radius: 20px;
-  border: 1px solid rgb(138, 135, 135);
+  border: 1px solid rgb(158, 156, 156);
   padding-left: 20px;
   font-size: 1.2rem;
+}
+
+input[type="text"]::placeholder {
+  color: rgb(198, 194, 194);
 }
 
 .search-container input[type="text"]:focus {
@@ -59,9 +63,15 @@ body {
 }
 
 .material-symbols-outlined {
- background-color: transparent;
- margin-left: -5px;
- cursor: pointer;
+  background-color: transparent;
+  margin-left: -5px;
+  cursor: pointer;
+
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 900,
+    'GRAD' 0,
+    'opsz' 48
 }
 
 .full-name-handler {
@@ -83,9 +93,10 @@ body {
   height: 35px;
 }
 
-.full-name-handler .profile-pic {
-  width: 60px;
-  height: 60px;
+.full-name-handler .profile-pic,
+.username-avi {
+  width: 55px;
+  height: 55px;
   border: 1px solid black;
   border-radius: 100%;
   background-image: url(icons/capy.webp);
@@ -229,13 +240,14 @@ ul > li > a {
   grid-row: 2 / last-line;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr) max(20%, 200px);
+  grid-template-columns: repeat(2, 1fr) max(18%, 200px);
   grid-template-rows: 1fr 1fr;
   grid-template-areas: "project project side"
                        "project project side";
   column-gap: 40px;           
-  margin: 0 40px 0 40px;
+  margin: 0 60px 0 40px;
   margin-bottom: 50px;
+  padding-top: 20px;
 }
 
 .projects {
@@ -245,53 +257,155 @@ ul > li > a {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  grid-auto-rows: 240px;
-  gap: 40px;
+  grid-auto-rows: 230px;
+  gap: 35px;
 }
+
+
+
+
+
+
+
+
+
 
 .card {
   outline: 1px solid black;
-  background-color: bisque;
+  background-color: rgb(221, 219, 217);
   text-align: center;
   border-radius: 20px;
 }
 
+
+
+
+
+
+
+
+
 .side-content {
   grid-area: side;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: 30px;
+  row-gap: 20px;
+  max-height: 1000px;
 }
 
 .announcement-container {
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: clamp(200px, 50vh, 400px);
+  height: clamp(200px, 50vh, 430px);
+  flex: 1;
 }
 
 .announcement-card {
   background-color: rgb(225, 221, 221);
+  border-radius: 10px;
   border: 1px solid black;
-  flex: 1;
-  border-radius: 20px;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div > h3 {
+  margin-bottom: -13px;
+  font-size: 1.1rem;
+}
+
+.announcement-card p {
+  font-size: 1rem;
+  color: rgb(74, 73, 73);
+}
+
+.announcement-card > div {
+  width: 82%;
+  padding: 0 10px 0 10px;
+}
+
+.announcement-card > div ~ div {
+  border-top: 1px solid rgb(92, 92, 94);
+}
+
+.announcement-card > div h3 {
+  margin-top: 15px;
+}
+
+.cards,
+.announcement-card,
+.trending-card {
+  margin-top: -5px;
 }
 
 .trending-container {
-  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: clamp(200px, 50vh, 400px);
+  height: clamp(200px, 50vh, 390px);
+  margin-top: -20px;
+  margin-top: 10px;
 }
 
 .trending-card {
   background-color: rgb(225, 221, 221);
   border: 1px solid black;
   flex: 1;
-  border-radius: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.trending-container h2,
+.announcement-container h2 {
+  font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-right: 5px;
+}
+
+.item > div > span {
+  font-size: clamp(0.8rem, 1vw, 1.1rem);
+  color: rgb(80, 80, 83);
+}
+
+.username-avi {
+  width: clamp(30px, 4vw, 55px);
+  height: clamp(30px, 4vw, 55px);
+}
+
+.username-1,
+.username-2,
+.username-3,
+.username-4 {
+  font-weight: 700;
+  font-size: clamp(0.8rem, 1vw, 1.1rem);
+}
+
+.item > div:last-child {
+  line-height: clamp(0.8rem, 1vw, 1.3rem);
+}
+
+.username-avi.one{
+  /*background-image: url(); Custom pic  */ 
+}
+
+.username-avi.two{
+  /*background-image: url(); Custom pic  */ 
+}
+
+.username-avi.three{
+  /*background-image: url(); Custom pic  */ 
+}
+
+.username-avi.four{
+  /*background-image: url(); Custom pic  */ 
 }
