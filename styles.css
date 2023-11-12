@@ -1,4 +1,14 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');               /* Reg */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');      /* Bold */
+
+:root {
+  --sidebar-font: 'Lato', sans-serif;
+  --main-content-font: 'Roboto', sans-serif;
+  --min-line-height: 15px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -29,14 +39,12 @@ body {
 }
 
 .search-container {
-  /*outline: 1px solid green;*/
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 5px;
   padding-left: 50px;
-  /*margin-top: -20px;*/
 }
 
 .search-container input[type="text"] {
@@ -45,7 +53,8 @@ body {
   border-radius: 20px;
   border: 1px solid rgb(158, 156, 156);
   padding-left: 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-family: var(--main-content-font);
 }
 
 input[type="text"]::placeholder {
@@ -84,19 +93,20 @@ input[type="text"]::placeholder {
 }
 
 .full-name-handler .full-name {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: bold;
+  font-family: var(--main-content-font);
 }
 
 .full-name-handler img {
-  width: 35px;
-  height: 35px;
+  width: clamp(20px, 2.5vw, 35px);
+  height: clamp(20px, 2.5vw, 35px);
 }
 
 .full-name-handler .profile-pic,
 .username-avi {
-  width: 55px;
-  height: 55px;
+  width: clamp(30px, 4vw, 55px);
+  height: clamp(30px, 4vw, 55px);
   border: 1px solid black;
   border-radius: 100%;
   background-image: url(icons/capy.webp);
@@ -113,11 +123,12 @@ input[type="text"]::placeholder {
   width: 100%;
   padding-left: 50px;
   margin-bottom: 30px;
+  padding-right: 15px;
 }
 
 .profile-handler .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: clamp(60px, 6vw, 100px);
+  height: clamp(60px, 6vw, 100px);
   border: 1px solid black;
   border-radius: 100%;
   background-image: url(icons/capy.webp);
@@ -127,13 +138,15 @@ input[type="text"]::placeholder {
 
 .self-intro {
   white-space: pre-line;
-  line-height: 34px;
-  font-size: 1.2rem;
+  line-height: calc(0.8vw + var(--min-line-height));
+  font-size: clamp(1rem, 1vw, 1.2rem);
+  font-family: var(--main-content-font);
 }
 
 .self-intro span {
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: bold;
+  font-family: var(--main-content-font);
 }
 
 .self-intro span > a {
@@ -152,20 +165,21 @@ input[type="text"]::placeholder {
 }
 
 .buttons > button {
-  height: 50px;
-  width: 120px;
+  height: clamp(30px, 3.5vw, 50px);
+  width: clamp(70px, 7vw, 120px);
   border-radius: 50px;
   border: none;
   background-color: rgb(39, 48, 114);
-  font-size: 1.3rem;
+  font-size: clamp(0.8rem, 1vw, 1.3rem);
   color: rgb(238, 232, 232);
   cursor: pointer;
+  font-family: var(--main-content-font);
 }
 
 .sidebar-container {
   grid-column: 1;
   grid-row: 1 / last-line;
-  background-color: rgb(198, 230, 230);
+  background-color: rgba(163, 194, 199, 0.601);
 
   display: grid;
   grid-template-rows: 100px min-content min-content;
@@ -175,6 +189,8 @@ input[type="text"]::placeholder {
 
 .sidebar-container ul > li {
   list-style-type: none;
+  font-family: var(--sidebar-font);
+  font-weight: 550;
 }
 
 .logo-sec {
@@ -205,13 +221,15 @@ ul {
 }
 
 ul > li {
-  font-size: clamp(1.2rem, 1.3vw, 1.8rem);       /* Custom li font size */
+  font-size: clamp(1.2rem, 1.3vw, 1.6rem);       /* Custom li font size */
   padding-left: 55px;
 }
 
 
 .logo-sec  span {
-  font-size: clamp(1.5rem, 1.7vw, 3rem);
+  font-size: clamp(1.5rem, 1.7vw, 2.3rem);
+  font-family: var(--sidebar-font);
+  font-weight: bold;
 }
 
 /* Header icon */
@@ -257,33 +275,55 @@ ul > li > a {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  grid-auto-rows: 230px;
+  grid-auto-rows: minmax(230px, auto);  /* change height if more content is included */
   gap: 35px;
 }
 
-
-
-
-
-
-
-
-
-
 .card {
-  outline: 1px solid black;
-  background-color: rgb(221, 219, 217);
-  text-align: center;
-  border-radius: 20px;
+  border-left: 10px solid orange;
+  background-color: rgb(247, 245, 243);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3),
+              0px -1px 10px rgba(0, 0, 0, 0.3),
+              1px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
+.info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 50px 0 25px;
+  row-gap: 5px;
+}
 
+.title {
+  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
+  font-family: var(--main-content-font);
+  font-weight: 600;
+}
 
+.title + div {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(74, 73, 73, 0.83);
+  font-family: var(--main-content-font);
+}
 
+.card .icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 25px;
+  padding-right: 30px;
+}
 
-
-
-
+.icons > img {
+  width: 28px;         
+  height: 28px;
+}
 
 .side-content {
   grid-area: side;
@@ -291,12 +331,10 @@ ul > li > a {
   flex-direction: column;
   justify-content: flex-start;
   row-gap: 20px;
-  max-height: 1000px;
 }
 
 .announcement-container {
-  height: clamp(200px, 50vh, 430px);
-  flex: 1;
+  /*height: clamp(400px, 50%, 430px);*/
 }
 
 .announcement-card {
@@ -306,7 +344,6 @@ ul > li > a {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -314,11 +351,13 @@ ul > li > a {
 div > h3 {
   margin-bottom: -13px;
   font-size: 1.1rem;
+  font-family: var(--main-content-font);
 }
 
 .announcement-card p {
   font-size: 1rem;
   color: rgb(74, 73, 73);
+  font-family: var(--main-content-font);
 }
 
 .announcement-card > div {
@@ -345,8 +384,6 @@ div > h3 {
   flex-direction: column;
   justify-content: center;
   height: clamp(200px, 50vh, 390px);
-  margin-top: -20px;
-  margin-top: 10px;
 }
 
 .trending-card {
@@ -361,8 +398,10 @@ div > h3 {
 }
 
 .trending-container h2,
-.announcement-container h2 {
-  font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+.announcement-container h2,
+.projects h2 {
+  font-size: clamp(1.3rem, 1.5vw, 1.6rem);
+  font-family: var(--main-content-font);
 }
 
 .item {
@@ -374,7 +413,8 @@ div > h3 {
 
 .item > div > span {
   font-size: clamp(0.8rem, 1vw, 1.1rem);
-  color: rgb(80, 80, 83);
+  font-family: var(--main-content-font);
+  color: rgb(80, 80, 81);
 }
 
 .username-avi {
@@ -386,8 +426,9 @@ div > h3 {
 .username-2,
 .username-3,
 .username-4 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: clamp(0.8rem, 1vw, 1.1rem);
+  font-family: var(--main-content-font);
 }
 
 .item > div:last-child {
@@ -409,3 +450,4 @@ div > h3 {
 .username-avi.four{
   /*background-image: url(); Custom pic  */ 
 }
+
