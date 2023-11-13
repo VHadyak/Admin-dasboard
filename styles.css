@@ -24,11 +24,17 @@ body {
   display: grid;
   grid-template-columns: minmax(250px, 1fr) repeat(5, 1fr);
   grid-template-rows: 250px repeat(5, 1fr);
+
+  grid-template-areas: "sidebar header header header header header"
+                       "sidebar main-content main-content main-content main-content main-content"
+                       "sidebar main-content main-content main-content main-content main-content"
+                       "sidebar main-content main-content main-content main-content main-content"
+                       "sidebar main-content main-content main-content main-content main-content"
+                       "sidebar main-content main-content main-content main-content main-content";
 }
 
 .header-container {
-  grid-column: 2 / 7;
-  grid-row: 1;
+  grid-area: header;
   background-color: rgb(224, 223, 223);
 
   display: grid;
@@ -177,8 +183,7 @@ input[type="text"]::placeholder {
 }
 
 .sidebar-container {
-  grid-column: 1;
-  grid-row: 1 / last-line;
+  grid-area: sidebar;
   background-color: rgba(163, 194, 199, 0.601);
 
   display: grid;
@@ -254,8 +259,7 @@ ul > li > a {
 }
 
 .main-content-container {
-  grid-column: 2 / 7;
-  grid-row: 2 / last-line;
+  grid-area: main-content;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr) max(18%, 200px);
@@ -451,3 +455,175 @@ div > h3 {
   /*background-image: url(); Custom pic  */ 
 }
 
+@media (max-width: 900px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+                         "sidebar"
+                         "main-content";
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 150px;
+  }
+
+  .header-container {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+    grid-template-rows: auto;
+    grid-template-areas: "search full-name"
+                         "profile profile"
+                         "buttons buttons";
+  }
+
+  .sidebar-container {
+    grid-area: sidebar;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 0.5fr;
+
+    grid-template-areas: "list-1"
+                         "list-2";         
+    gap: 1px; 
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: -5px;
+
+    background-color: #fffffff0;    /* 0.941 alpha */
+  }
+
+  .sidebar-container > ul:first-of-type{
+    grid-area: list-1;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    padding: 0;
+    margin: 0;   
+    margin-top: 10px;
+  }
+
+  .sidebar-container > ul:last-of-type {
+    grid-area: list-2;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: -5px;
+  }
+
+  .sidebar-container ul > li {
+    font-size: 0.9rem;
+  }
+
+  .logo-sec > span,
+  .logo-sec > img {
+    display: none;
+  }
+  
+  .main-content-container {
+    grid-area: main-content;
+    display: grid;
+    grid-template-columns: 1fr;            /* Single column layout for mobile */
+    grid-template-rows: auto;
+    grid-template-areas: "project"
+                         "side";
+  }   
+
+  .projects {
+    grid-area: project;
+  }
+
+  .side-content {
+    grid-area: side;
+  }
+  
+  .full-name-handler .full-name {
+    font-size: 1rem;
+  }
+  
+  .full-name-handler .profile-pic {
+    width: 20px;
+    height: 20px;
+    margin-right: -3px;
+  }
+
+  .username-avi {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .profile-handler {
+    grid-area: profile;
+    margin-top: 30px;
+  }
+
+  .self-intro span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--main-content-font);
+  }
+
+  .self-intro {
+    font-size: 0.8rem;
+    font-family: var(--main-content-font);
+  }
+
+  .search-container {
+    grid-area: search;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+
+  .search-container input[type="text"] {
+    height: 25px;
+    font-size: 0.8rem;
+  }
+
+  .buttons {
+    grid-area: buttons;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 50px;
+    height: auto;
+    margin-bottom: -20px;
+    padding-left: 50px;
+  }
+
+  .announcement-container {
+    margin-top: 20px;
+  }
+
+  .item > div > span {
+    font-size: 1rem;
+  }
+  
+  .username-1,
+  .username-2,
+  .username-3,
+  .username-4 {
+    font-size: 1rem;
+  }
+
+  .item > div:last-child {
+    line-height: 1.3rem;
+  }
+
+  .full-name-handler {
+    grid-area: full-name;
+    margin-top: 20px;
+  }
+
+  .full-name-handler img {
+    margin-right: -5px;
+  }
+}
