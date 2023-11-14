@@ -1,11 +1,15 @@
+/* Admin Dashboard design by Vlad Hadyak */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');               /* Reg */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');      /* Bold */
 
 :root {
-  --sidebar-font: 'Lato', sans-serif;
   --main-content-font: 'Roboto', sans-serif;
+  --main-bg-color: white;
+  --header-bg-color: black;
+  --sidebar-bg-color: rgba(231, 244, 91, 0.632);
+  --cards-bg-color: white;
+  --font-color: gray;
   --min-line-height: 15px;
 }
 
@@ -17,10 +21,10 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background-color: var(--main-bg-color);
 }
 
 .grid-container {
-  min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(250px, 1fr) repeat(5, 1fr);
   grid-template-rows: 250px repeat(5, 1fr);
@@ -59,7 +63,7 @@ body {
   border-radius: 20px;
   border: 1px solid rgb(158, 156, 156);
   padding-left: 20px;
-  font-size: 1.1rem;
+  font-size: 1.1rem;                              /* !!! */
   font-family: var(--main-content-font);
 }
 
@@ -68,7 +72,7 @@ input[type="text"]::placeholder {
 }
 
 .search-container input[type="text"]:focus {
-  box-shadow: 0 0 5px 3px rgba(2, 2, 2, 0.1);
+  box-shadow: 0 0 5px 3px rgba(2, 2, 2, 0.1);        /* !!! */
   outline: none;
 }
 
@@ -81,6 +85,7 @@ input[type="text"]::placeholder {
   background-color: transparent;
   margin-left: -5px;
   cursor: pointer;
+  color: rgb(40, 79, 43);
 
   font-variation-settings:
     'FILL' 0,
@@ -104,6 +109,7 @@ input[type="text"]::placeholder {
   font-family: var(--main-content-font);
 }
 
+/* Bell notification */
 .full-name-handler img {
   width: clamp(20px, 2.5vw, 35px);
   height: clamp(20px, 2.5vw, 35px);
@@ -115,14 +121,13 @@ input[type="text"]::placeholder {
   height: clamp(30px, 4vw, 55px);
   border: 1px solid black;
   border-radius: 100%;
-  background-image: url(icons/capy.webp);
+  background-image: url(img/capy.webp);
   background-repeat: no-repeat;
   background-size: cover;
   margin-left: 20px;
 }
 
 .profile-handler {
-  display: flex;
   gap: 20px;
   display: flex;
   align-items: center;
@@ -137,11 +142,12 @@ input[type="text"]::placeholder {
   height: clamp(60px, 6vw, 100px);
   border: 1px solid black;
   border-radius: 100%;
-  background-image: url(icons/capy.webp);
+  background-image: url(img/capy.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+/* Introduction text */
 .self-intro {
   white-space: pre-line;
   line-height: calc(0.8vw + var(--min-line-height));
@@ -149,19 +155,15 @@ input[type="text"]::placeholder {
   font-family: var(--main-content-font);
 }
 
+/* Name and username */
 .self-intro span {
   font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: bold;
   font-family: var(--main-content-font);
 }
 
-.self-intro span > a {
-  text-decoration: none;
-}
-
 .buttons {
   width: 100%;
-  height: 100px;
   margin-bottom: 30px;
   display: flex;
   justify-content: flex-end;
@@ -184,33 +186,52 @@ input[type="text"]::placeholder {
 
 .sidebar-container {
   grid-area: sidebar;
-  background-color: rgba(163, 194, 199, 0.601);
+  background-color: var(--sidebar-bg-color);
 
   display: grid;
-  grid-template-rows: 100px min-content min-content;
+  grid-template-rows: 100px min-content min-content min-content;
   gap: 85px;
-  box-shadow: 0 8px 10px -4px rgba(0, 0, 0, 0.5);
-}
-
-.sidebar-container ul > li {
-  list-style-type: none;
-  font-family: var(--sidebar-font);
-  font-weight: 550;
+  box-shadow: 0 8px 10px -4px rgba(0, 0, 0, 0.5);         /* !!! */
 }
 
 .logo-sec {
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-self: start;
-  padding-left: 55px;
+  padding-left: 53px;
   padding-top: 15px;
 }
 
-ul li > a {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+/* Sidebar icon */
+.logo-sec > img {
+  width: clamp(45px, 4vw, 60px);          /* Custom img width */
+  height: 60px;
+  margin-left: -10px;
+}
+
+/* Sidebar title */
+.logo-sec  span {
+  font-size: clamp(1.5rem, 1.7vw, 2.3rem);
+  font-family: var(--main-content-font);
+  font-weight: bold;
+}
+
+.line {
+  justify-self: center;
+  border: 1px solid rgba(4, 4, 4, 0.391);
+  height: 1px;
+  width: 85%;
+  margin-top: -70px;
+}
+
+.sidebar-container ul > li {
+  list-style-type: none;
+  font-family: var(--main-content-font);             /* Roboto prob */
+  font-weight: 550; 
+
+  font-size: clamp(1.2rem, 1.3vw, 1.6rem);       /* Custom li font size */
+  padding-left: 55px;
+  width: 50%;
 }
 
 ul {
@@ -222,42 +243,31 @@ ul {
 }
 
 .sidebar-container > ul:first-of-type {
-  margin-top: -30px;
-}
-
-ul > li {
-  font-size: clamp(1.2rem, 1.3vw, 1.6rem);       /* Custom li font size */
-  padding-left: 55px;
-}
-
-
-.logo-sec  span {
-  font-size: clamp(1.5rem, 1.7vw, 2.3rem);
-  font-family: var(--sidebar-font);
-  font-weight: bold;
-}
-
-/* Header icon */
-.logo-sec > img {
-  width: clamp(45px, 4vw, 60px);          /* Custom img width */
-  height: 60px;
-  margin-left: -10px;
+  margin-top: -100px;
 }
 
 /* Sidebar icons */
-a > img {
+.sidebar-container ul > li > a > img {
   width: clamp(25px, 2vw, 35px);          /* Custom img width */
   height: 35px;
+}
+
+ul li > a {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 a:visited {
   color: initial;
 }
 
-ul > li > a {
+ul > li > a,
+.self-intro span > a {
   text-decoration: none;
 }
 
+/* Projects + Announcements + Trending */
 .main-content-container {
   grid-area: main-content;
 
@@ -267,8 +277,7 @@ ul > li > a {
   grid-template-areas: "project project side"
                        "project project side";
   column-gap: 40px;           
-  margin: 0 60px 0 40px;
-  margin-bottom: 50px;
+  margin: 0 60px 50px 40px;
   padding-top: 20px;
 }
 
@@ -279,17 +288,17 @@ ul > li > a {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  grid-auto-rows: minmax(230px, auto);  /* change height if more content is included */
+  grid-auto-rows: minmax(230px, auto);                                /* change height if more content is included */
   gap: 35px;
 }
 
 .card {
-  border-left: 10px solid orange;
-  background-color: rgb(247, 245, 243);
+  border-left: 10px solid rgb(42, 99, 99);
+  background-color: rgb(247, 245, 243);                 /* Custom var() bg color for cards */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3),
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3),          /* Needs alternative design */
               0px -1px 10px rgba(0, 0, 0, 0.3),
               1px 0px 10px rgba(0, 0, 0, 0.3);
 }
@@ -299,22 +308,25 @@ ul > li > a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px 50px 0 25px;
+  padding: 5px 50px 0 25px;                                 /* top/right/btm/left */
   row-gap: 5px;
 }
 
+/* Project title */
 .title {
   font-size: clamp(1.2rem, 1.5vw, 1.4rem);
   font-family: var(--main-content-font);
   font-weight: 600;
 }
 
+/* Project description */
 .title + div {
   font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(74, 73, 73, 0.83);
+  color: rgba(0, 0, 0, 0.985);                           /* Custom set var() needed */
   font-family: var(--main-content-font);
 }
 
+/* Project card icons */
 .card .icons {
   flex: 1;
   display: flex;
@@ -329,16 +341,13 @@ ul > li > a {
   height: 28px;
 }
 
+/* Announcements + Trending */
 .side-content {
   grid-area: side;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   row-gap: 20px;
-}
-
-.announcement-container {
-  /*height: clamp(400px, 50%, 430px);*/
 }
 
 .announcement-card {
@@ -348,19 +357,22 @@ ul > li > a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-div > h3 {
+/* Titles (Announcements section) */
+.announcement-card > div h3 {
+  margin-top: 15px;
   margin-bottom: -13px;
   font-size: 1.1rem;
   font-family: var(--main-content-font);
 }
 
+/* Description (Announcements section) */
 .announcement-card p {
   font-size: 1rem;
-  color: rgb(74, 73, 73);
+  color: rgb(74, 73, 73);                              /* Custom set var() needed */
   font-family: var(--main-content-font);
 }
 
@@ -370,35 +382,32 @@ div > h3 {
 }
 
 .announcement-card > div ~ div {
-  border-top: 1px solid rgb(92, 92, 94);
-}
-
-.announcement-card > div h3 {
-  margin-top: 15px;
-}
-
-.cards,
-.announcement-card,
-.trending-card {
-  margin-top: -5px;
+  border-top: 1px solid rgb(92, 92, 94);                /* Needs styling */
 }
 
 .trending-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: clamp(200px, 50vh, 390px);
 }
 
 .trending-card {
+  flex: 1;
   background-color: rgb(225, 221, 221);
   border: 1px solid black;
-  flex: 1;
   border-radius: 10px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  padding-right: 20px;
+  padding-top: 25px;
+}
+
+.cards,
+.announcement-card,
+.trending-card {
+  margin-top: -5px;
 }
 
 .trending-container h2,
@@ -408,57 +417,66 @@ div > h3 {
   font-family: var(--main-content-font);
 }
 
+/* Trending item */
 .item {
   display: flex;
-  align-items: center;
   gap: 15px;
-  padding-right: 5px;
 }
 
-.item > div > span {
-  font-size: clamp(0.8rem, 1vw, 1.1rem);
-  font-family: var(--main-content-font);
-  color: rgb(80, 80, 81);
+/* User's Avatar */ 
+.username-avi.one {
+  background-image: url(/img/chick.jpeg);
+}
+
+.username-avi.two {
+  background-image: url(/img/pepe.jpg);
+  background-position: 0 -6px;
+}
+
+.username-avi.three {
+  background-image: url(/img/depressed.webp);
+  background-position: -8px 0px;
 }
 
 .username-avi {
   width: clamp(30px, 4vw, 55px);
   height: clamp(30px, 4vw, 55px);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .username-1,
 .username-2,
-.username-3,
-.username-4 {
+.username-3 {
   font-weight: 500;
-  font-size: clamp(0.8rem, 1vw, 1.1rem);
+  font-size: clamp(0.8rem, 1vw, 1.05rem);
   font-family: var(--main-content-font);
 }
 
+/* Username's comment */
+.item > div > span {
+  font-size: clamp(0.7rem, 1vw, 0.92rem);
+  font-family: var(--main-content-font);
+  color: rgb(80, 80, 81);                       /* Custom set var() needed */
+}
+
+/* Username + comment text */
 .item > div:last-child {
-  line-height: clamp(0.8rem, 1vw, 1.3rem);
+  line-height: clamp(0.8rem, 1vw, 1.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 20px;
 }
 
-.username-avi.one{
-  /*background-image: url(); Custom pic  */ 
-}
-
-.username-avi.two{
-  /*background-image: url(); Custom pic  */ 
-}
-
-.username-avi.three{
-  /*background-image: url(); Custom pic  */ 
-}
-
-.username-avi.four{
-  /*background-image: url(); Custom pic  */ 
-}
-
+/* Mobile Responsiveness */
 @media (max-width: 900px) {
-
   body {
     overflow-x: hidden;
+  }
+
+  .line {
+    display: none;
   }
 
   .grid-container {
@@ -475,7 +493,7 @@ div > h3 {
   .header-container {
     grid-area: header;
     display: grid;
-    grid-template-columns: 1fr; /* Single column layout for mobile */
+    grid-template-columns: 1fr;                        /* Single column layout for mobile */
     grid-template-rows: auto;
     grid-template-areas: "search full-name"
                          "profile profile"
@@ -487,38 +505,35 @@ div > h3 {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 0.5fr;
-
     grid-template-areas: "list-1"
                          "list-2";         
     gap: 1px; 
-
     position: -webkit-sticky;
     position: sticky;
     top: -5px;
-
-    background-color: #fffffff0;    /* 0.941 alpha */
+    background-color: #fffffff0;                       /* 0.941 alpha */
   }
 
   .sidebar-container > ul:first-of-type{
     grid-area: list-1;
-    
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     padding: 0;
     margin: 0;   
     margin-top: 10px;
+    padding-right: 10px;
   }
 
   .sidebar-container > ul:last-of-type {
     grid-area: list-2;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     padding: 0;
     margin: 0;
     margin-bottom: -5px;
+    padding-right: 10px;
   }
 
   .sidebar-container ul > li {
@@ -533,7 +548,7 @@ div > h3 {
   .main-content-container {
     grid-area: main-content;
     display: grid;
-    grid-template-columns: 1fr;            /* Single column layout for mobile */
+    grid-template-columns: 1fr;                      /* Single column layout for mobile */
     grid-template-rows: auto;
     grid-template-areas: "project"
                          "side";
@@ -557,9 +572,13 @@ div > h3 {
     margin-right: -3px;
   }
 
-  .username-avi {
-    width: 40px;
-    height: 40px;
+  .full-name-handler {
+    grid-area: full-name;
+    margin-top: 20px;
+  }
+
+  .full-name-handler img {
+    margin-right: -5px;
   }
   
   .profile-handler {
@@ -568,7 +587,7 @@ div > h3 {
   }
 
   .self-intro span {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     font-weight: bold;
     font-family: var(--main-content-font);
   }
@@ -576,6 +595,7 @@ div > h3 {
   .self-intro {
     font-size: 0.8rem;
     font-family: var(--main-content-font);
+    line-height: 1.4rem;
   }
 
   .search-container {
@@ -604,26 +624,21 @@ div > h3 {
   }
 
   .item > div > span {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   .username-1,
   .username-2,
-  .username-3,
-  .username-4 {
+  .username-3 {
     font-size: 1rem;
+  }
+
+  .username-avi {
+    width: 40px;
+    height: 40px;
   }
 
   .item > div:last-child {
     line-height: 1.3rem;
-  }
-
-  .full-name-handler {
-    grid-area: full-name;
-    margin-top: 20px;
-  }
-
-  .full-name-handler img {
-    margin-right: -5px;
   }
 }
