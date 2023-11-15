@@ -308,7 +308,7 @@ ul > li > a,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px 50px 0 25px;                                 /* top/right/btm/left */
+  padding: 10px 50px 0 25px;                                 /* top/right/btm/left */
   row-gap: 5px;
 }
 
@@ -402,12 +402,13 @@ ul > li > a,
   justify-content: space-evenly;
   padding-right: 20px;
   padding-top: 25px;
+  padding-bottom: 5px;
 }
 
 .cards,
 .announcement-card,
 .trending-card {
-  margin-top: -5px;
+  margin-top: -8px;
 }
 
 .trending-container h2,
@@ -595,7 +596,7 @@ ul > li > a,
   .self-intro {
     font-size: 0.8rem;
     font-family: var(--main-content-font);
-    line-height: 1.4rem;
+    line-height: 1.3rem;
   }
 
   .search-container {
