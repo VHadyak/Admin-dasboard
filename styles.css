@@ -1,15 +1,15 @@
-/* Admin Dashboard design by Vlad Hadyak */
+/* Admin Dashboard designed by Vlad Hadyak */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');               /* Reg */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');      /* Bold */
 
 :root {
-  --main-content-font: 'Roboto', sans-serif;
-  --main-bg-color: white;
-  --header-bg-color: black;
-  --sidebar-bg-color: rgba(231, 244, 91, 0.632);
-  --cards-bg-color: white;
-  --font-color: gray;
+  --main-font: 'Roboto', sans-serif;
+  --main-bg-color: #f8fafc;
+  --header-bg-color: #f1f5f9;
+  --sidebar-bg-color: #f7ec9d;    
+  --card-bg-color: #f1f5f9;
+  --font-color: #3c3c3c;
   --min-line-height: 15px;
 }
 
@@ -21,7 +21,11 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: var(--main-bg-color);
+  background: repeating-linear-gradient(45deg, var(--main-bg-color),           /* :0 */
+                                               var(--main-bg-color) 10px, 
+                                               #f1f1f1b0 10px, 
+                                               #f1f1f1ac 20px);
+  font-family: var(--main-font);
 }
 
 .grid-container {
@@ -29,6 +33,7 @@ body {
   grid-template-columns: minmax(250px, 1fr) repeat(5, 1fr);
   grid-template-rows: 250px repeat(5, 1fr);
 
+  /* Lol */
   grid-template-areas: "sidebar header header header header header"
                        "sidebar main-content main-content main-content main-content main-content"
                        "sidebar main-content main-content main-content main-content main-content"
@@ -39,13 +44,13 @@ body {
 
 .header-container {
   grid-area: header;
-  background-color: rgb(224, 223, 223);
+  background-color: var(--header-bg-color);
 
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr; 
   place-items: center;
-  box-shadow: 0 8px 15px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.5);
 }
 
 .search-container {
@@ -59,20 +64,17 @@ body {
 
 .search-container input[type="text"] {
   width: 70%;
-  height: 40px;
+  height: 35px;
   border-radius: 20px;
-  border: 1px solid rgb(158, 156, 156);
-  padding-left: 20px;
-  font-size: 1.1rem;                              /* !!! */
-  font-family: var(--main-content-font);
-}
-
-input[type="text"]::placeholder {
-  color: rgb(198, 194, 194);
+  border: 1px solid rgb(168, 166, 166);
+  padding: 0 20px 0 20px;
+  font-size: 1.1rem;                          
+  background-color: #e7ebf0;
 }
 
 .search-container input[type="text"]:focus {
-  box-shadow: 0 0 5px 3px rgba(2, 2, 2, 0.1);        /* !!! */
+  box-shadow: 0 0 2px 1px rgba(107, 49, 184, 0.563);
+  border: 1px solid rgba(45, 18, 81, 0.682);    
   outline: none;
 }
 
@@ -81,11 +83,12 @@ input[type="text"]::placeholder {
   background-color: transparent;
 }
 
+/* Search icon */
 .material-symbols-outlined {
   background-color: transparent;
   margin-left: -5px;
   cursor: pointer;
-  color: rgb(40, 79, 43);
+  color: rgb(9, 9, 9);
 
   font-variation-settings:
     'FILL' 0,
@@ -106,13 +109,13 @@ input[type="text"]::placeholder {
 .full-name-handler .full-name {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: bold;
-  font-family: var(--main-content-font);
 }
 
 /* Bell notification */
 .full-name-handler img {
   width: clamp(20px, 2.5vw, 35px);
   height: clamp(20px, 2.5vw, 35px);
+  margin-top: 3px;
 }
 
 .full-name-handler .profile-pic,
@@ -152,14 +155,12 @@ input[type="text"]::placeholder {
   white-space: pre-line;
   line-height: calc(0.8vw + var(--min-line-height));
   font-size: clamp(1rem, 1vw, 1.2rem);
-  font-family: var(--main-content-font);
 }
 
 /* Name and username */
 .self-intro span {
   font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: bold;
-  font-family: var(--main-content-font);
 }
 
 .buttons {
@@ -173,25 +174,26 @@ input[type="text"]::placeholder {
 }
 
 .buttons > button {
-  height: clamp(30px, 3.5vw, 50px);
+  height: clamp(30px, 3.5vw, 45px);
   width: clamp(70px, 7vw, 120px);
   border-radius: 50px;
   border: none;
-  background-color: rgb(39, 48, 114);
-  font-size: clamp(0.8rem, 1vw, 1.3rem);
-  color: rgb(238, 232, 232);
+  background-color: #ede292;
+  border: 1px solid rgba(14, 14, 14, 0.206);
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
+  color: rgb(8, 8, 8);
   cursor: pointer;
-  font-family: var(--main-content-font);
 }
 
 .sidebar-container {
+  min-height: 100vh;
   grid-area: sidebar;
   background-color: var(--sidebar-bg-color);
 
   display: grid;
   grid-template-rows: 100px min-content min-content min-content;
   gap: 85px;
-  box-shadow: 0 8px 10px -4px rgba(0, 0, 0, 0.5);         /* !!! */
+  box-shadow: 0 8px 10px -4px rgba(0, 0, 0, 0.5);       
 }
 
 .logo-sec {
@@ -204,32 +206,30 @@ input[type="text"]::placeholder {
 
 /* Sidebar icon */
 .logo-sec > img {
-  width: clamp(45px, 4vw, 60px);          /* Custom img width */
+  width: clamp(45px, 4vw, 60px);          
   height: 60px;
   margin-left: -10px;
 }
 
 /* Sidebar title */
 .logo-sec  span {
-  font-size: clamp(1.5rem, 1.7vw, 2.3rem);
-  font-family: var(--main-content-font);
+  font-size: clamp(1.5rem, 1.7vw, 2.1rem);
   font-weight: bold;
 }
 
 .line {
   justify-self: center;
-  border: 1px solid rgba(4, 4, 4, 0.391);
+  border: 1px solid rgba(0, 0, 0, 0.591);
   height: 1px;
   width: 85%;
   margin-top: -70px;
 }
 
 .sidebar-container ul > li {
-  list-style-type: none;
-  font-family: var(--main-content-font);             /* Roboto prob */
+  list-style-type: none;          
   font-weight: 550; 
 
-  font-size: clamp(1.2rem, 1.3vw, 1.6rem);       /* Custom li font size */
+  font-size: clamp(1.2rem, 1.3vw, 1.6rem);      
   padding-left: 55px;
   width: 50%;
 }
@@ -248,7 +248,7 @@ ul {
 
 /* Sidebar icons */
 .sidebar-container ul > li > a > img {
-  width: clamp(25px, 2vw, 35px);          /* Custom img width */
+  width: clamp(25px, 2vw, 35px);          
   height: 35px;
 }
 
@@ -262,8 +262,7 @@ a:visited {
   color: initial;
 }
 
-ul > li > a,
-.self-intro span > a {
+a {
   text-decoration: none;
 }
 
@@ -293,14 +292,12 @@ ul > li > a,
 }
 
 .card {
-  border-left: 10px solid rgb(42, 99, 99);
-  background-color: rgb(247, 245, 243);                 /* Custom var() bg color for cards */
+  border-left: 10px solid rgb(45, 18, 81);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3),          /* Needs alternative design */
-              0px -1px 10px rgba(0, 0, 0, 0.3),
-              1px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .info {
@@ -308,22 +305,20 @@ ul > li > a,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 50px 0 25px;                                 /* top/right/btm/left */
+  padding: 10px 50px 0 25px;                                              /* top/right/btm/left */
   row-gap: 5px;
 }
 
 /* Project title */
 .title {
-  font-size: clamp(1.2rem, 1.5vw, 1.4rem);
-  font-family: var(--main-content-font);
+  font-size: clamp(1.15rem, 1.5vw, 1.3rem);
   font-weight: 600;
 }
 
 /* Project description */
 .title + div {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: rgba(0, 0, 0, 0.985);                           /* Custom set var() needed */
-  font-family: var(--main-content-font);
+  font-size: clamp(1rem, 1vw, 1.2rem);
+  color: var(--font-color);
 }
 
 /* Project card icons */
@@ -334,11 +329,13 @@ ul > li > a,
   align-items: center;
   gap: 25px;
   padding-right: 30px;
+  padding-top: 10px;
 }
 
-.icons > img {
-  width: 28px;         
-  height: 28px;
+/* Dimensions of project icons */
+.icons img {
+  width: 25px;         
+  height: 25px;
 }
 
 /* Announcements + Trending */
@@ -351,14 +348,14 @@ ul > li > a,
 }
 
 .announcement-card {
-  background-color: rgb(225, 221, 221);
+  background-color: var(--card-bg-color);
   border-radius: 10px;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 15px;
   padding-bottom: 15px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* Titles (Announcements section) */
@@ -366,14 +363,12 @@ ul > li > a,
   margin-top: 15px;
   margin-bottom: -13px;
   font-size: 1.1rem;
-  font-family: var(--main-content-font);
 }
 
 /* Description (Announcements section) */
 .announcement-card p {
-  font-size: 1rem;
-  color: rgb(74, 73, 73);                              /* Custom set var() needed */
-  font-family: var(--main-content-font);
+  font-size: 0.95rem;
+  color: var(--font-color);                            
 }
 
 .announcement-card > div {
@@ -382,7 +377,7 @@ ul > li > a,
 }
 
 .announcement-card > div ~ div {
-  border-top: 1px solid rgb(92, 92, 94);                /* Needs styling */
+  border-top: 1px solid rgb(170, 168, 168);              
 }
 
 .trending-container {
@@ -393,8 +388,7 @@ ul > li > a,
 
 .trending-card {
   flex: 1;
-  background-color: rgb(225, 221, 221);
-  border: 1px solid black;
+  background-color: var(--card-bg-color);
   border-radius: 10px;
 
   display: flex;
@@ -403,19 +397,19 @@ ul > li > a,
   padding-right: 20px;
   padding-top: 25px;
   padding-bottom: 5px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .cards,
 .announcement-card,
 .trending-card {
-  margin-top: -8px;
+  margin-top: -5px;
 }
 
 .trending-container h2,
 .announcement-container h2,
 .projects h2 {
-  font-size: clamp(1.3rem, 1.5vw, 1.6rem);
-  font-family: var(--main-content-font);
+  font-size: clamp(1.2rem, 1.5vw, 1.5rem);
 }
 
 /* Trending item */
@@ -449,25 +443,69 @@ ul > li > a,
 .username-1,
 .username-2,
 .username-3 {
-  font-weight: 500;
-  font-size: clamp(0.8rem, 1vw, 1.05rem);
-  font-family: var(--main-content-font);
+  font-size: clamp(0.8rem, 1vw, 1.06rem);
 }
 
 /* Username's comment */
 .item > div > span {
   font-size: clamp(0.7rem, 1vw, 0.92rem);
-  font-family: var(--main-content-font);
-  color: rgb(80, 80, 81);                       /* Custom set var() needed */
+  color: var(--font-color);
 }
 
 /* Username + comment text */
 .item > div:last-child {
-  line-height: clamp(0.8rem, 1vw, 1.25rem);
+  line-height: clamp(0.8rem, 1vw, 1.35rem);
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding-bottom: 20px;
+}
+
+.item div:last-child > span {
+  
+  line-height: clamp(0.8rem, 1vw, 1.1rem);
+}
+
+/* Hover effects */
+.full-name-handler img,
+.buttons > button,
+.sidebar-container ul > li,
+.card {
+  transition: transform 0.3s ease-out;
+}
+
+.buttons > button:hover {
+  background-color: #e7d867;
+}
+
+.buttons > button:active,
+.sidebar-container ul > li:hover,
+.full-name-handler img:active {
+  transform: scale(1.2);
+}
+
+.sidebar-container ul > li:active {
+  transition: transform 0.1s ease-out;   
+  transform: scale(1.3);
+}
+
+.icons a {
+  transition: transform 0.3s ease-out;
+}
+
+.icons a:hover {
+  transform: scale(1.3);
+}
+
+.icons a:active {
+  transform: scale(1.7);
+}
+
+.card:hover {
+  transform: scale(1.06);
+  cursor: pointer;
+  border-top: 3px solid rgb(45, 18, 81);
+  border-bottom: 3px solid rgb(45, 18, 81);
 }
 
 /* Mobile Responsiveness */
@@ -502,6 +540,7 @@ ul > li > a,
   }
 
   .sidebar-container {
+    min-height: auto;
     grid-area: sidebar;
     display: grid;
     grid-template-columns: 1fr;
@@ -512,7 +551,9 @@ ul > li > a,
     position: -webkit-sticky;
     position: sticky;
     top: -5px;
-    background-color: #fffffff0;                       /* 0.941 alpha */
+    backdrop-filter: blur(10px);
+    background-color: rgba(236, 241, 197, 0.641);     
+    box-shadow: 0 8px 10px -8px rgba(0, 0, 0, 0.5);       
   }
 
   .sidebar-container > ul:first-of-type{
@@ -538,7 +579,7 @@ ul > li > a,
   }
 
   .sidebar-container ul > li {
-    font-size: 0.9rem;
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
   }
 
   .logo-sec > span,
@@ -554,6 +595,10 @@ ul > li > a,
     grid-template-areas: "project"
                          "side";
   }   
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 
   .projects {
     grid-area: project;
@@ -580,6 +625,7 @@ ul > li > a,
 
   .full-name-handler img {
     margin-right: -5px;
+    margin-top: 3px;
   }
   
   .profile-handler {
@@ -588,14 +634,12 @@ ul > li > a,
   }
 
   .self-intro span {
-    font-size: 1.35rem;
+    font-size: clamp(1.1rem, 6vw, 1.35rem);
     font-weight: bold;
-    font-family: var(--main-content-font);
   }
 
   .self-intro {
     font-size: 0.8rem;
-    font-family: var(--main-content-font);
     line-height: 1.3rem;
   }
 
@@ -608,6 +652,9 @@ ul > li > a,
   .search-container input[type="text"] {
     height: 25px;
     font-size: 0.8rem;
+    padding: 0;
+    padding: 0 15px 0 15px;
+    touch-action: manipulation;
   }
 
   .buttons {
@@ -618,6 +665,10 @@ ul > li > a,
     height: auto;
     margin-bottom: -20px;
     padding-left: 50px;
+  }
+
+  .buttons > button {
+    background-color: rgba(228, 237, 155, 0.641);
   }
 
   .announcement-container {
@@ -642,4 +693,39 @@ ul > li > a,
   .item > div:last-child {
     line-height: 1.3rem;
   }
+
+  .icons img {
+    width: 22px;         
+    height: 22px;
+  }
+
+  /* Project title */
+.title {
+  font-size: clamp(0.9rem, 5vw, 1.1rem);
+}
+
+/* Project description */
+.title + div {
+  font-size: clamp(0.8rem, 4vw, 1rem);
+}
+
+  /*
+  .buttons > button:hover {
+     OVERRIDE 
+  } 
+  
+  .buttons > button:active,
+  .sidebar-container ul > li:hover,
+  .full-name-handler img:active {
+     OVERRIDE 
+  } 
+  
+  .sidebar-container ul > li:active {
+     OVERRIDE 
+  } 
+  
+  .card:hover {
+     OVERRIDE 
+  } 
+  */
 }
