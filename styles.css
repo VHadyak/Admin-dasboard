@@ -258,7 +258,15 @@ ul li > a {
   gap: 25px;
 }
 
+a {
+  color: black;
+}
+
 a:visited {
+  color: black;
+}
+
+a:link {
   color: black;
 }
 
