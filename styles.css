@@ -559,6 +559,7 @@ a {
     position: sticky;
     top: -5px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background-color: rgba(236, 241, 197, 0.641);     
     box-shadow: 0 8px 10px -8px rgba(0, 0, 0, 0.5);       
   }
@@ -707,11 +708,11 @@ a {
   }
 
   /* Project title */
-.title {
-  font-size: clamp(0.9rem, 5vw, 1.1rem);
-}
+  .title {
+    font-size: clamp(0.9rem, 5vw, 1.1rem);
+  }
 
-/* Project description */
+  /* Project description */
   .title + div {
     font-size: clamp(0.8rem, 4vw, 1rem);
   }
