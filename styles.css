@@ -420,16 +420,16 @@ a {
 
 /* User's Avatar */ 
 .username-avi.one {
-  background-image: url(/img/chick.jpeg);
+  background-image: url(img/chick.jpeg);
 }
 
 .username-avi.two {
-  background-image: url(/img/pepe.jpg);
+  background-image: url(img/pepe.jpg);
   background-position: 0 -6px;
 }
 
 .username-avi.three {
-  background-image: url(/img/depressed.webp);
+  background-image: url(img/depressed.webp);
   background-position: -8px 0px;
 }
 
