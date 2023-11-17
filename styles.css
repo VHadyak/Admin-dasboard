@@ -259,7 +259,7 @@ ul li > a {
 }
 
 a:visited {
-  color: initial;
+  color: black;
 }
 
 a {
@@ -462,7 +462,6 @@ a {
 }
 
 .item div:last-child > span {
-  
   line-height: clamp(0.8rem, 1vw, 1.1rem);
 }
 
@@ -705,27 +704,41 @@ a {
 }
 
 /* Project description */
-.title + div {
-  font-size: clamp(0.8rem, 4vw, 1rem);
+  .title + div {
+    font-size: clamp(0.8rem, 4vw, 1rem);
+  }
 }
 
-  /*
+/* CSS for touch devices (no hover) */
+@media (hover: none) {
   .buttons > button:hover {
-     OVERRIDE 
+    background-color: inherit;
+    color: inherit;
   } 
   
   .buttons > button:active,
   .sidebar-container ul > li:hover,
   .full-name-handler img:active {
-     OVERRIDE 
+    background-color: inherit;
+    color: inherit;
+    transform: none;
   } 
   
   .sidebar-container ul > li:active {
-     OVERRIDE 
+    background-color: inherit;
+    color: inherit;
+    transform: none;
   } 
   
   .card:hover {
-     OVERRIDE 
+    border-top: inherit;
+    border-bottom: inherit;
+    transform: none;
   } 
-  */
+
+  .icons a:hover {
+    background-color: inherit;
+    color: inherit;
+    transform: none;
+  }
 }
